@@ -24,3 +24,18 @@ end
 "World" |> Flip.flip(["Hello ", "!"], fn (p1, p2, p3) -> p1 <> p2 <> p3 end)
 "Hello World!"
 ```
+
+You think that using the prefix `Flip.flip` make it redundant, just import the
+module so you can directly use the `flip` method without having to bother with
+the module name:
+
+```elixir
+defmodule MyModule do
+  import Flip
+
+  def my_function do
+    "World"
+    |> flip(["Hello "], &Kernel.<>/2)
+  end
+end
+```
